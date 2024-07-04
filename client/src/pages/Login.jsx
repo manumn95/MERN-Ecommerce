@@ -67,7 +67,7 @@ const Login = () => {
               </div>
               <Link
                 to={"/forgot-password"}
-                className="block w-fit  ml-auto hover:underline hover:text-red-600"
+                className="block w-fit py-2  ml-auto hover:underline hover:text-red-600"
               >
                 Forgot password?
               </Link>

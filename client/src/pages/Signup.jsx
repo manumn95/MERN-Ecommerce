@@ -42,7 +42,7 @@ const Signup = () => {
   }
 
   return (
-    <section id="login">
+    <section id="signup">
       <div className="mx-auto container p-4">
         <div className="bg-white p-5 w-full max-w-sm mx-auto">
           <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
@@ -51,7 +51,7 @@ const Signup = () => {
            </div>
         <form>
           <label>
-          <div className="text-sm bg-opacity-75 bg-slate-200 py-3 pb-4 pt-2 cursor-pointer text-center absolute bottom-0 w-full">
+          <div className="text-sm bg-opacity-50 bg-slate-200 py-3 pb-4 pt-2 cursor-pointer text-center absolute bottom-0 w-full">
             upload photo
            </div>
             <input className="hidden" type="file" onChange={handleUploadPic}></input>
@@ -72,6 +72,7 @@ const Signup = () => {
                   name="name"
                   value={data.name}
                   onChange={handleChange}
+                  required
                 ></input>
               </div>
             </div>
@@ -99,6 +100,7 @@ const Signup = () => {
                   name="password"
                   value={data.password}
                   onChange={handleChange}
+                  required
                 ></input>
                 <div
                   className="cursor-pointer text-xl"
@@ -120,6 +122,7 @@ const Signup = () => {
                   name="confirmPassword"
                   value={data.confirmPassword}
                   onChange={handleChange}
+                  required
                 ></input>
                 <div
                   className="cursor-pointer text-xl"
