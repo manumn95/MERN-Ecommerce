@@ -5,7 +5,7 @@ const userSignUpController = async (req, res) => {
     const { name, email, password } = req.body;
 
     const user = await userModel.findOne({email});
-    if(email)
+    if(user)
       {
         throw new Error("User already Exist");
       }
@@ -29,11 +29,12 @@ const userSignUpController = async (req, res) => {
 
     const payload = {
       ...req.body,
+      role:"GENERAL",
       password: hashPassword,
     };
 
     const userData = new userModel(payload);
-    const saveUser = userData.save();
+    const saveUser = await userData.save();
     res.status(201).json({
       data: saveUser,
       message: "User Created Successfully",
@@ -42,7 +43,7 @@ const userSignUpController = async (req, res) => {
     });
   } catch (err) {
     res.json({
-      message: err.message || err  ,
+      message: err.message || err,
       error: true,
       success: false,
     });
