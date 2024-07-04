@@ -4,11 +4,10 @@ const userSignUpController = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    const user = await userModel.findOne({email});
-    if(user)
-      {
-        throw new Error("User already Exist");
-      }
+    const user = await userModel.findOne({ email });
+    if (user) {
+      throw new Error("User already Exist");
+    }
 
     if (!email) {
       throw new Error("please Provide Email");
@@ -29,7 +28,7 @@ const userSignUpController = async (req, res) => {
 
     const payload = {
       ...req.body,
-      role:"GENERAL",
+      role: "Customer",
       password: hashPassword,
     };
 
