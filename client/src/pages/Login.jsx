@@ -2,13 +2,18 @@ import { useState } from "react";
 import login_icon from "../assets/signin.gif";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import summaryApi from "../common";
+import { toast } from "react-toastify";
+import axios from "axios";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+
+  const navigate=useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,8 +26,20 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const dataResponse = await axios.post(summaryApi.signIn.url, data, {
+      withCredentials: "include",
+    });
+    console.log(dataResponse);
+    if (dataResponse.data.success) {
+      toast.success(dataResponse.data.message);
+      navigate('/')
+    }
+    if (dataResponse.data.error) {
+      toast.error(dataResponse.data.message);
+    }
   };
 
   return (
@@ -77,7 +94,7 @@ const Login = () => {
             </button>
           </form>
           <p className="my-5 text-red-600 hover:text-red-700 hover:underline">
-            Don't have account ? <Link to={"/sign-up"}>SignUp</Link>
+            Do not have account ? <Link to={"/sign-up"}>SignUp</Link>
           </p>
         </div>
       </div>
