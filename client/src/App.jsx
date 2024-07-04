@@ -9,6 +9,7 @@ import summaryApi from "./common";
 import context from "./context";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./store/userSlice";
+import './../src/App.css'
 
 const App = () => {
 

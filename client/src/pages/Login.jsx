@@ -34,7 +34,7 @@ const Login = () => {
     const dataResponse = await axios.post(summaryApi.signIn.url, data, {
       withCredentials: "include",
     });
-    console.log(dataResponse);
+
     if (dataResponse.data.success) {
       toast.success(dataResponse.data.message);
 
