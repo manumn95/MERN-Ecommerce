@@ -3,12 +3,35 @@ import { GrSearch } from "react-icons/gr";
 import { LuUserCircle2 } from "react-icons/lu";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import summaryApi from "../common";
+import { toast } from "react-toastify";
+import { setUserDetails } from "../store/userSlice";
 const Header = () => {
+  const user = useSelector((state) => state?.user?.user?.data);
+const dispatch=useDispatch();
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    const dataResponse = await axios.get(summaryApi.user_logout.url, {
+      withCredentials: "include",
+    });
+    if (dataResponse.data.success) {
+      toast.success(dataResponse.data.message);
+      dispatch(setUserDetails(null))
+    }
+    if (dataResponse.data.error) {
+      toast.error(dataResponse.data.message);
+    }
+  };
   return (
     <header className="h-16 shadow-md bg-white">
       <div className="h-full container mx-auto flex items-center justify-between px-4">
         <div className="">
-       <Link to={'/'}>   <Logo w={90} h={50}></Logo></Link>
+          <Link to={"/"}>
+            {" "}
+            <Logo w={90} h={50}></Logo>
+          </Link>
         </div>
 
         <div className="hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow-md pl-2">
@@ -24,11 +47,18 @@ const Header = () => {
 
         <div className="flex items-center gap-7">
           <div className="text-3xl cursor-pointer">
-            <LuUserCircle2 />
+            {user?.profilePic ? (
+              <img
+                src={user?.profilePic}
+                className="w-8 h-8 rounded-full"
+                alt={user?.name}
+              ></img>
+            ) : (
+              <LuUserCircle2 />
+            )}
           </div>
           <div className="text-2xl relative">
             <span>
-              
               <FaShoppingCart />
             </span>
             <div className="bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3">
@@ -37,9 +67,21 @@ const Header = () => {
           </div>
 
           <div>
-            <Link to={'/login'} className="px-3 py-1 rounded-full bg-red-600 hover:bg-red-700 text-white">
-              Login
-            </Link>
+            {user?._id ? (
+              <Link
+                to={"/login"}
+                className="px-3 py-1 rounded-full bg-red-600 hover:bg-red-700 text-white" onClick={handleLogout}
+              >
+                Logout
+              </Link>
+            ) : (
+              <Link
+                to={"/login"}
+                className="px-3 py-1 rounded-full bg-red-600 hover:bg-red-700 text-white"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </div>
