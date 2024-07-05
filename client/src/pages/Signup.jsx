@@ -34,20 +34,25 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (data.password === data.confirmPassword) {
-      const dataResponse = await axios.post(summaryApi.signUp.url, data);
-    if(dataResponse.data.success)
-      {
-        toast.success(dataResponse.data.message);
-        navigate('/login')
-      }
-      if(dataResponse.data.error)
-        {
-          toast.error(dataResponse.data.message);
-        }
+    if (data.password !== data.confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
 
-    } else {
-      console.log("Please check the password");
+    try {
+      const dataResponse = await axios.post(summaryApi.signUp.url, data, {
+        withCredentials: true,
+      });
+
+      if (dataResponse.data.success) {
+        toast.success(dataResponse.data.message);
+        navigate("/login");
+      } else {
+        toast.error(dataResponse.data.message);
+      }
+    } catch (error) {
+      console.error("Error signing up:", error);
+      toast.error("An error occurred. Please try again.");
     }
   };
 

@@ -9,6 +9,7 @@ import summaryApi from "../common";
 import { toast } from "react-toastify";
 import { setUserDetails } from "../store/userSlice";
 import { useState } from "react";
+import ROLE from "../common/role";
 const Header = () => {
   const user = useSelector((state) => state?.user?.user?.data);
   const dispatch = useDispatch();
@@ -49,33 +50,37 @@ const Header = () => {
 
         <div className="flex items-center gap-7">
           <div className="relative  flex items-center">
-            <div
-              className="text-3xl cursor-pointer relative flex justify-center"
-              onClick={() => setMenuDisplay((pre) => setMenuDisplay(!pre))}
-            >
-              {user?.profilePic ? (
-                <img
-                  src={user?.profilePic}
-                  className="w-8 h-8 rounded-full"
-                  alt={user?.name}
-                ></img>
-              ) : (
-                <LuUserCircle2 />
-              )}
-            </div>
+            {user?._id && (
+              <div
+                className="text-3xl cursor-pointer relative flex justify-center"
+                onClick={() => setMenuDisplay((pre) => setMenuDisplay(!pre))}
+              >
+                {user?.profilePic ? (
+                  <img
+                    src={user?.profilePic}
+                    className="w-8 h-8 rounded-full"
+                    alt={user?.name}
+                  ></img>
+                ) : (
+                  <LuUserCircle2 />
+                )}
+              </div>
+            )}
 
             {menuDisplay && (
               <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded">
                 <nav>
-                  <Link
-                    to={"admin-panel"}
-                    className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2 "
-                    onClick={() =>
-                      setMenuDisplay((pre) => setMenuDisplay(!pre))
-                    }
-                  >
-                    Admin Panel
-                  </Link>
+                  {user?.role === ROLE.ADMIN && (
+                    <Link
+                      to={"/admin-panel/all-products"}
+                      className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2 "
+                      onClick={() =>
+                        setMenuDisplay((pre) => setMenuDisplay(!pre))
+                      }
+                    >
+                      Admin Panel
+                    </Link>
+                  )}
                 </nav>
               </div>
             )}
