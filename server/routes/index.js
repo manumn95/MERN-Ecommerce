@@ -7,6 +7,9 @@ const authToken = require('../middleware/authToken,js');
 const userLogOut = require('../controllers/userLogout');
 const allUsers = require('../controllers/allUsers');
 const updateUser = require('../controllers/updateUser');
+const uploadProductController = require('../controllers/uploadProduct');
+const getProductController = require('../controllers/getProduct');
+const updateProductController = require('../controllers/updateProduct');
 
 router.post('/signUp',userSignUpController)
 router.post('/signIn',userSignIn);
@@ -17,5 +20,11 @@ router.get('/user-logout',userLogOut);
 
 router.get('/allUsers',authToken,allUsers)
 router.post('/updateUser',authToken,updateUser)
+
+//upload product
+
+router.post('/upload-product',authToken,uploadProductController)
+router.get('/getProduct',getProductController)
+router.post('/update-product',authToken,updateProductController)
 
 module.exports = router;

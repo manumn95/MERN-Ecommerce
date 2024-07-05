@@ -35,7 +35,7 @@ const userSignIn = async (req, res) => {
       res.cookie("token", token, tokenOption).json({
         message: "Login Successfull",
         data: token,
-        success: true,
+        success: true, 
         error: false,
       });
     } else {
