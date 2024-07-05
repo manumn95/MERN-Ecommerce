@@ -25,7 +25,7 @@ const userSignIn = async (req, res) => {
         email: user.email,
       };
       const token = await jwt.sign(tokenData, process.env.TOKEN_SECRETE_KEY, {
-        expiresIn: 60 * 60 * 8,
+        expiresIn: '999 years',
       });
 
       const tokenOption = {
