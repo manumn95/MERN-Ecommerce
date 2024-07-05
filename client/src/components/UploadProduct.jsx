@@ -5,15 +5,18 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import uploadImage from "../helpers/uploadImage";
 import DisplayImage from "./DisplayImage";
 import { MdDelete } from "react-icons/md";
+import axios from "axios";
+import summaryApi from "../common";
+import { toast } from "react-toastify";
 
-const UploadProduct = ({ onClose }) => {
+const UploadProduct = ({ onClose, fetchData }) => {
   const [data, setData] = useState({
     productName: "",
     brandName: "",
     category: "",
     productImage: [],
     description: "",
-    selling: "",
+    sellingPrice: "",
     price: "",
   });
 
@@ -47,6 +50,24 @@ const UploadProduct = ({ onClose }) => {
     }));
   };
 
+  //upload Product
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const dataResponse = await axios.post(summaryApi.uploadProducts.url, data, {
+      withCredentials: "include",
+    });
+
+    if (dataResponse.data.success) {
+      toast.success(dataResponse?.data?.message);
+      onClose();
+      fetchData();
+    }
+    if (dataResponse.data.error) {
+      toast.error(dataResponse?.data?.message);
+    }
+  };
+
   return (
     <div className="fixed w-full h-full top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-slate-200 bg-opacity-35">
       <div className="bg-white p-4 rounded w-full max-w-2xl h-full max-h-[80%] overflow-hidden">
@@ -59,7 +80,10 @@ const UploadProduct = ({ onClose }) => {
             <IoClose />
           </div>
         </div>
-        <form className="grid p-4 gap-3 overflow-y-scroll h-full pb-5">
+        <form
+          className="grid p-4 gap-3 overflow-y-scroll h-full pb-5"
+          onSubmit={handleSubmit}
+        >
           <label htmlFor="productName">Product Name</label>
           <input
             type="text"
@@ -69,6 +93,7 @@ const UploadProduct = ({ onClose }) => {
             value={data.productName}
             onChange={handleOnChange}
             className="p-2 bg-slate-100 border rounded"
+            required
           />
 
           <label htmlFor="brandName" className="mt-3">
@@ -82,17 +107,20 @@ const UploadProduct = ({ onClose }) => {
             value={data.brandName}
             onChange={handleOnChange}
             className="p-2 bg-slate-100 border rounded"
+            required
           />
 
           <label htmlFor="category" className="mt-3">
             Category:
           </label>
           <select
+            required
             name="category"
             value={data.category}
             className="p-2 bg-slate-100 border rounded"
             onChange={handleOnChange}
           >
+            <option value="">Select Category</option>
             {productCategory.map((el, index) => (
               <option key={el.value + index} value={el.value}>
                 {el.label}
@@ -150,7 +178,50 @@ const UploadProduct = ({ onClose }) => {
             )}
           </div>
 
-          <button className="mb-10 px-3 py-2 bg-red-600 text-white hover:bg-red-700">
+          <label htmlFor="price" className="mt-3">
+            price:
+          </label>
+          <input
+            required
+            type="number"
+            id="price"
+            placeholder="enter price"
+            value={data.price}
+            onChange={handleOnChange}
+            name="price"
+            className="p-2 bg-slate-100 border rounded"
+          ></input>
+
+          <label htmlFor="sellingPrice" className="mt-3">
+            Selling Price:
+          </label>
+          <input
+            required
+            type="number"
+            id="price"
+            placeholder="enter sellingPrice"
+            value={data.sellingPrice}
+            onChange={handleOnChange}
+            name="sellingPrice"
+            className="p-2 bg-slate-100 border rounded"
+          ></input>
+
+          <label htmlFor="description" className="mt-3">
+            Description:
+          </label>
+          <textarea
+            className="h-28 bg-slate-100 border resize-none p-1"
+            placeholder="enter product description"
+            name="description"
+            value={data.description}
+            rows={3}
+            onChange={handleOnChange}
+          ></textarea>
+
+          <button
+            type="submit"
+            className="mb-10 px-3 py-2 bg-red-600 text-white hover:bg-red-700"
+          >
             Upload Product
           </button>
         </form>

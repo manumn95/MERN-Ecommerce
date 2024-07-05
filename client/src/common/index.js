@@ -18,6 +18,17 @@ const summaryApi = {
   },
   updateUser:{
     url:`${backendDomain}/api/updateUser`
+  },
+  
+    uploadProducts:{
+      url:`${backendDomain}/api/upload-product`
+    
+  },
+  allProduct:{
+    url:`${backendDomain}/api/getProduct`
+  },
+  updateProduct:{
+    url:`${backendDomain}/api/update-product`
   }
 };
 export default summaryApi;
