@@ -6,14 +6,14 @@ const AdminProductCard = ({ data, fetchData }) => {
   const [editProduct, setEditProduct] = useState(false);
   return (
     <div>
-      <div className="bg-white p-8 rounded ">
+      <div className="bg-white p-8 rounded shadow-md ">
         <div className="w-40 ">
           <div className="w-32 h-32 flex justify-center items-center">
             <img
               src={data?.productImage[0]}
               width={120}
               height={120}
-              className=" mx-auto object-fill h-full w-full"
+              className="  object-contain h-full w-full mx-auto "
             ></img>
           </div>
           <h1 className="text-ellipsis line-clamp-2">{data.productName}</h1>

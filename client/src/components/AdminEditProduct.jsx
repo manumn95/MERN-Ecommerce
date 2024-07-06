@@ -152,9 +152,9 @@ const AdminEditProduct = ({ onClose, productData, fetchData }) => {
 
             <div>
               {data?.productImage[0] ? (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 ">
                   {data.productImage.map((el, index) => (
-                    <div key={index} className="relative group">
+                    <div key={index} className="relative group max-h-80">
                       <img
                         src={el}
                         alt="Image"
