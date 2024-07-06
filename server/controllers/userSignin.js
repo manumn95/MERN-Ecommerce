@@ -25,7 +25,7 @@ const userSignIn = async (req, res) => {
         email: user.email,
       };
       const token = await jwt.sign(tokenData, process.env.TOKEN_SECRETE_KEY, {
-        expiresIn: '999 years',
+        expiresIn: "999 years",
       });
 
       const tokenOption = {
@@ -35,7 +35,7 @@ const userSignIn = async (req, res) => {
       res.cookie("token", token, tokenOption).json({
         message: "Login Successfull",
         data: token,
-        success: true, 
+        success: true,
         error: false,
       });
     } else {
