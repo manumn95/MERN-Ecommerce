@@ -29,6 +29,9 @@ const summaryApi = {
   },
   updateProduct:{
     url:`${backendDomain}/api/update-product`
+  },
+  categoryProduct:{
+    url:`${backendDomain}/api/get-category-product`
   }
 };
 export default summaryApi;
