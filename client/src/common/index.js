@@ -38,6 +38,21 @@ const summaryApi = {
   },
   productDetails:{
     url:`${backendDomain}/api/product-details`
+  },
+  addToCartProduct:{
+    url:`${backendDomain}/api/addToCart`
+  },
+  countAddedProduct:{
+    url:`${backendDomain}/api/countAddedProduct`
+  },
+  addToCartProductView:{
+    url:`${backendDomain}/api/viewCartProduct`
+  },
+  updateCartProduct:{
+    url:`${backendDomain}/api/update-cart-product`
+  },
+  deleteCartProduct:{
+    url:`${backendDomain}/api/delete-cart-product`
   }
 };
 export default summaryApi;

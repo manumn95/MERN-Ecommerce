@@ -8,12 +8,14 @@ import axios from "axios";
 import summaryApi from "../common";
 import { toast } from "react-toastify";
 import { setUserDetails } from "../store/userSlice";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ROLE from "../common/role";
+import context from "../context";
 const Header = () => {
   const user = useSelector((state) => state?.user?.user?.data);
   const dispatch = useDispatch();
   const [menuDisplay, setMenuDisplay] = useState(false);
+  const contexts = useContext(context);
   const handleLogout = async (e) => {
     e.preventDefault();
     const dataResponse = await axios.get(summaryApi.user_logout.url, {
@@ -32,7 +34,7 @@ const Header = () => {
       <div className="h-full container mx-auto flex items-center justify-between px-4">
         <div className="">
           <Link to={"/"}>
-            {" "}
+         
             <Logo w={90} h={50}></Logo>
           </Link>
         </div>
@@ -86,14 +88,17 @@ const Header = () => {
             )}
           </div>
 
-          <div className="text-2xl relative">
-            <span>
-              <FaShoppingCart />
-            </span>
-            <div className="bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3">
-              <p className="text-sm">0</p>
-            </div>
-          </div>
+          {user?._id && (
+            <Link to={"cart"} className="text-2xl relative">
+              <span>
+                <FaShoppingCart />
+              </span>
+
+              <div className="bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3">
+                <p className="text-sm">{contexts?.cartProductCount}</p>
+              </div>
+            </Link>
+          )}
 
           <div>
             {user?._id ? (
