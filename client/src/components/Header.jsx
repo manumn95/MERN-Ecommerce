@@ -2,7 +2,7 @@ import Logo from "./Logo";
 import { GrSearch } from "react-icons/gr";
 import { LuUserCircle2 } from "react-icons/lu";
 import { FaShoppingCart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import summaryApi from "../common";
@@ -16,6 +16,10 @@ const Header = () => {
   const dispatch = useDispatch();
   const [menuDisplay, setMenuDisplay] = useState(false);
   const contexts = useContext(context);
+  const navigate = useNavigate();
+const searchInput = useLocation();
+const[search,setSearch]=useState(searchInput?.search?.split("=")[1])
+
   const handleLogout = async (e) => {
     e.preventDefault();
     const dataResponse = await axios.get(summaryApi.user_logout.url, {
@@ -29,12 +33,22 @@ const Header = () => {
       toast.error(dataResponse.data.message);
     }
   };
+
+  const handleSearch = (e) => {
+    const { value } = e.target;
+    setSearch(value)
+    if(value){
+navigate(`/search?q=${value}`)
+    }
+    else{
+      navigate("/search")
+    }
+  };
   return (
     <header className="h-16 shadow-md bg-white fixed w-full z-40">
       <div className="h-full container mx-auto flex items-center justify-between px-4">
         <div className="">
           <Link to={"/"}>
-         
             <Logo w={90} h={50}></Logo>
           </Link>
         </div>
@@ -44,6 +58,8 @@ const Header = () => {
             type="search"
             placeholder="search product here..."
             className="w-full outline-none "
+            value={search}
+            onChange={handleSearch}
           ></input>
           <div className="text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white">
             <GrSearch />

@@ -53,6 +53,9 @@ const summaryApi = {
   },
   deleteCartProduct:{
     url:`${backendDomain}/api/delete-cart-product`
+  },
+  searchProduct:{
+    url:`${backendDomain}/api/search`
   }
 };
 export default summaryApi;
