@@ -6,7 +6,7 @@ const authToken = (req, res, next) => {
 
     if (!token) {
       return res.status(200).json({
-        message: "user not loggedIn",
+        message: "Please Login",
         errror: true,
         success: false,
       });

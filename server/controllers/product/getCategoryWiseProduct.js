@@ -2,7 +2,6 @@ const productModel = require("../../models/productModel");
 
 const getCategoryWiseProduct = async (req, res) => {
   try {
-    console.log(req.body.body.category);
     const { category } = req?.body.body || req?.query;
     const product = await productModel.find({ category });
 
