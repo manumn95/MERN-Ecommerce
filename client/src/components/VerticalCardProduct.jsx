@@ -3,6 +3,8 @@ import fetchCategorywiseProduct from "../helpers/fetchCategorywiseProduct";
 import displayINRCurrency from "../helpers/displayCurrency";
 import { FaAngleRight } from "react-icons/fa6";
 import { FaAngleLeft } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import addToCart from "../helpers/addToCart";
 
 const VerticalCardProduct = ({ category, heading }) => {
   const [data, setData] = useState([]);
@@ -77,7 +79,8 @@ const VerticalCardProduct = ({ category, heading }) => {
             })
           : data.map((product, index) => {
               return (
-                <div
+                <Link
+                  to={"product/" + product?._id}
                   key={index}
                   className="w-full min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px]   bg-white  shadow rounded"
                 >
@@ -103,11 +106,14 @@ const VerticalCardProduct = ({ category, heading }) => {
                         {displayINRCurrency(product?.price)}
                       </p>
                     </div>
-                    <button className="bg-red-600 hover:bg-red-700 text-white transition-all px-3 py-0.5 rounded-full text-sm">
+                    <button
+                      className="bg-red-600 hover:bg-red-700 text-white transition-all px-3 py-0.5 rounded-full text-sm"
+                      onClick={(e) => addToCart(e, product?._id)}
+                    >
                       Add To Cart
                     </button>
                   </div>
-                </div>
+                </Link>
               );
             })}
       </div>
