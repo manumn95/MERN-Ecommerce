@@ -56,6 +56,9 @@ const summaryApi = {
   },
   searchProduct:{
     url:`${backendDomain}/api/search`
+  },
+  filterProduct:{
+    url:`${backendDomain}/api/filter-product`
   }
 };
 export default summaryApi;

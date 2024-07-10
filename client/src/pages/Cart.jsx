@@ -12,16 +12,20 @@ const Cart = () => {
   const loadingCart = new Array(contexts.cartProductCount).fill(null);
 
   const fetchData = async () => {
-    setLoading(true);
+    //setLoading(true);
     const dataResponse = await axios.get(summaryApi.addToCartProductView.url, {
       withCredentials: "include",
     });
-    setLoading(false);
+    //setLoading(false);
     setData(dataResponse.data.data);
   };
-
+  const handleLoading = async () => {
+    await fetchData();
+  };
   useEffect(() => {
-    fetchData();
+    setLoading(true);
+    handleLoading();
+    setLoading(false);
   }, []);
 
   const increaseQty = async (id, qty) => {
@@ -177,7 +181,9 @@ const Cart = () => {
                 <p>Total Price:</p>
                 <p>{displayINRCurrency(totalPrice)}</p>
               </div>
-              <button className="bg-blue-600 text-white w-full p-2">Payment</button>
+              <button className="bg-blue-600 text-white w-full p-2">
+                Payment
+              </button>
             </div>
           )}
         </div>
