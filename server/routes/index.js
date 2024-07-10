@@ -20,6 +20,7 @@ const addToCartViewProduct = require("../controllers/user/addToCartViewProduct")
 const updateAddToCartProduct = require("../controllers/user/updateAddToCart");
 const deleteAddToCardProduct = require("../controllers/user/deleteAddToCart");
 const searchProduct = require("../controllers/product/searchProduct");
+const filterProductController = require("../controllers/product/filterProduct");
 router.post("/signUp", userSignUpController);
 router.post("/signIn", userSignIn);
 router.get("/user-details", authToken, userDetailController);
@@ -38,6 +39,7 @@ router.get("/get-category-product", getCategoryProduct);
 router.post("/category-product", getCategoryWiseProduct);
 router.post('/product-details',getProductDetail)
 router.get("/search",searchProduct)
+router.post('/filter-product',filterProductController)
 
 // Add to cart
 
