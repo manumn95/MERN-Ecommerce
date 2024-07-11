@@ -13,52 +13,58 @@ const summaryApi = {
   user_logout: {
     url: `${backendDomain}/api/user-logout`,
   },
-  allUsers:{
-    url:`${backendDomain}/api/allUsers`
+  allUsers: {
+    url: `${backendDomain}/api/allUsers`,
   },
-  updateUser:{
-    url:`${backendDomain}/api/updateUser`
+  updateUser: {
+    url: `${backendDomain}/api/updateUser`,
   },
-  
-    uploadProducts:{
-      url:`${backendDomain}/api/upload-product`
-    
+
+  uploadProducts: {
+    url: `${backendDomain}/api/upload-product`,
   },
-  allProduct:{
-    url:`${backendDomain}/api/getProduct`
+  allProduct: {
+    url: `${backendDomain}/api/getProduct`,
   },
-  updateProduct:{
-    url:`${backendDomain}/api/update-product`
+  updateProduct: {
+    url: `${backendDomain}/api/update-product`,
   },
-  categoryProduct:{
-    url:`${backendDomain}/api/get-category-product`
+  categoryProduct: {
+    url: `${backendDomain}/api/get-category-product`,
   },
-  categoryWiseProduct:{
-    url:`${backendDomain}/api/category-product`
+  categoryWiseProduct: {
+    url: `${backendDomain}/api/category-product`,
   },
-  productDetails:{
-    url:`${backendDomain}/api/product-details`
+  productDetails: {
+    url: `${backendDomain}/api/product-details`,
   },
-  addToCartProduct:{
-    url:`${backendDomain}/api/addToCart`
+  addToCartProduct: {
+    url: `${backendDomain}/api/addToCart`,
   },
-  countAddedProduct:{
-    url:`${backendDomain}/api/countAddedProduct`
+  countAddedProduct: {
+    url: `${backendDomain}/api/countAddedProduct`,
   },
-  addToCartProductView:{
-    url:`${backendDomain}/api/viewCartProduct`
+  addToCartProductView: {
+    url: `${backendDomain}/api/viewCartProduct`,
   },
-  updateCartProduct:{
-    url:`${backendDomain}/api/update-cart-product`
+  updateCartProduct: {
+    url: `${backendDomain}/api/update-cart-product`,
   },
-  deleteCartProduct:{
-    url:`${backendDomain}/api/delete-cart-product`
+  deleteCartProduct: {
+    url: `${backendDomain}/api/delete-cart-product`,
   },
-  searchProduct:{
-    url:`${backendDomain}/api/search`
+  searchProduct: {
+    url: `${backendDomain}/api/search`,
   },
-  filterProduct:{
-    url:`${backendDomain}/api/filter-product`
-  }
+  filterProduct: {
+    url: `${backendDomain}/api/filter-product`,
+  },
+  payment: {
+    url: `${backendDomain}/api/checkout`,
+  },
+
+  getOrder: {
+    url: `${backendDomain}/api/orderDetails`,
+  },
 };
 export default summaryApi;

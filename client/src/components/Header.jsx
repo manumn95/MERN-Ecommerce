@@ -17,10 +17,10 @@ const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
   const contexts = useContext(context);
   const navigate = useNavigate();
-const searchInput = useLocation();
-const URLSearch = new URLSearchParams(searchInput?.search)
-const searchQuery=URLSearch.getAll("q")
-const[search,setSearch]=useState(searchQuery)
+  const searchInput = useLocation();
+  const URLSearch = new URLSearchParams(searchInput?.search);
+  const searchQuery = URLSearch.getAll("q");
+  const [search, setSearch] = useState(searchQuery);
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -38,12 +38,11 @@ const[search,setSearch]=useState(searchQuery)
 
   const handleSearch = (e) => {
     const { value } = e.target;
-    setSearch(value)
-    if(value){
-navigate(`/search?q=${value}`)
-    }
-    else{
-      navigate("/search")
+    setSearch(value);
+    if (value) {
+      navigate(`/search?q=${value}`);
+    } else {
+      navigate("/search");
     }
   };
   return (
@@ -51,7 +50,7 @@ navigate(`/search?q=${value}`)
       <div className="h-full container mx-auto flex items-center justify-between px-4">
         <div className="">
           <Link to={"/"}>
-            <Logo w={90} h={50}></Logo>
+            <Logo w={120} h={120}></Logo>
           </Link>
         </div>
 
@@ -101,6 +100,9 @@ navigate(`/search?q=${value}`)
                       Admin Panel
                     </Link>
                   )}
+                  <Link to='/order'className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2 "  onClick={() =>
+                        setMenuDisplay((pre) => setMenuDisplay(!pre))
+                      }></Link>
                 </nav>
               </div>
             )}

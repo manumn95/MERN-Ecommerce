@@ -11,6 +11,9 @@ import CategoryProduct from "../pages/CategoryProduct";
 import ProductDetail from "../pages/ProductDetail";
 import Cart from "../pages/Cart";
 import SearchProduct from "../pages/SearchProduct";
+import Success from "../pages/Success";
+import Cancel from "../pages/Cancel";
+import OrderPage from "../pages/OrderPage";
 
 const router = createBrowserRouter([
   {
@@ -46,8 +49,20 @@ const router = createBrowserRouter([
         element:<Cart></Cart>
       },
       {
+        path:'success',
+        element:<Success></Success>
+      },
+      {
+        path:'cancel',
+        element:<Cancel></Cancel>
+      },
+      {
         path:"search",
         element:<SearchProduct></SearchProduct>
+      },
+      {
+        path:'order',
+        element:<OrderPage></OrderPage>
       },
       {
         path:"admin-panel",
