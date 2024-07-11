@@ -21,6 +21,12 @@ const updateAddToCartProduct = require("../controllers/user/updateAddToCart");
 const deleteAddToCardProduct = require("../controllers/user/deleteAddToCart");
 const searchProduct = require("../controllers/product/searchProduct");
 const filterProductController = require("../controllers/product/filterProduct");
+const paymentController = require("../controllers/order/paymentController");
+const webhooks = require("../controllers/order/webHook");
+const orderController = require("../controllers/order/order.controller");
+
+
+
 router.post("/signUp", userSignUpController);
 router.post("/signIn", userSignIn);
 router.get("/user-details", authToken, userDetailController);
@@ -37,17 +43,21 @@ router.get("/getProduct", getProductController);
 router.post("/update-product", authToken, updateProductController);
 router.get("/get-category-product", getCategoryProduct);
 router.post("/category-product", getCategoryWiseProduct);
-router.post('/product-details',getProductDetail)
-router.get("/search",searchProduct)
-router.post('/filter-product',filterProductController)
+router.post("/product-details", getProductDetail);
+router.get("/search", searchProduct);
+router.post("/filter-product", filterProductController);
 
 // Add to cart
 
-router.post("/addToCart",authToken,addTocartController);
-router.get("/countAddedProduct",authToken,countAddToCartProduct);
-router.get("/viewCartProduct",authToken,addToCartViewProduct)
-router.put('/update-cart-product',authToken,updateAddToCartProduct)
-router.delete('/delete-cart-product',authToken,deleteAddToCardProduct)
+router.post("/addToCart", authToken, addTocartController);
+router.get("/countAddedProduct", authToken, countAddToCartProduct);
+router.get("/viewCartProduct", authToken, addToCartViewProduct);
+router.put("/update-cart-product", authToken, updateAddToCartProduct);
+router.delete("/delete-cart-product", authToken, deleteAddToCardProduct);
 
+//payment and order
+router.post("/checkout", authToken, paymentController);
+router.post('/webhook',webhooks);
+router.get('/orderDetails',authToken,orderController)
 
 module.exports = router;
