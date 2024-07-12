@@ -29,10 +29,10 @@ const userSignIn = async (req, res) => {
       });
 
       const tokenOption = {
-        httpOnly: true,
-        secure: true,
-        sameSite:'None'
-      };
+        httpOnly : true,
+        secure : true,
+        sameSite : 'None'
+    }
       res.cookie("token", token, tokenOption).json({
         message: "Login Successfull",
         data: token,

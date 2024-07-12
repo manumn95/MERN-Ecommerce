@@ -2,10 +2,10 @@ const userLogOut = (req, res) => {
   try {
 
     const tokenOption = {
-      httpOnly: true,
-      secure: true,
-      sameSite:'None'
-    };
+      httpOnly : true,
+      secure : true,
+      sameSite : 'None'
+  }
 
     res.clearCookie('token',tokenOption);
     res.json({
