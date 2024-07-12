@@ -24,7 +24,7 @@ const filterProductController = require("../controllers/product/filterProduct");
 const paymentController = require("../controllers/order/paymentController");
 const webhooks = require("../controllers/order/webHook");
 const orderController = require("../controllers/order/order.controller");
-const getCategoryWiseProduct = require("../controllers/product/getCategorywiseProduct");
+const getCategoryWiseProducts = require("../controllers/product/getCategorywiseProduct");
 
 
 
@@ -43,7 +43,7 @@ router.post("/upload-product", authToken, uploadProductController);
 router.get("/getProduct", getProductController);
 router.post("/update-product", authToken, updateProductController);
 router.get("/get-category-product", getCategoryProduct);
-router.post("/category-product", getCategoryWiseProduct);
+router.post("/category-product", getCategoryWiseProducts);
 router.post("/product-details", getProductDetail);
 router.get("/search", searchProduct);
 router.post("/filter-product", filterProductController);
