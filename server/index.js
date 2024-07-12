@@ -7,21 +7,31 @@ const router = require("./routes/index");
 
 const app = express();
 
+const allowedOrigin = 'https://mern-ecommerce-frontend-amber.vercel.app';
+
 app.use(
   cors({
-    origin: 'https://mern-ecommerce-frontend-amber.vercel.app',
+    origin: (origin, callback) => {
+      console.log(`Received origin: ${origin}`);  // Logging the received origin
+      if (!origin || origin === allowedOrigin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", router);
 
-const port = 8000 || process.env.PORT;
+const port = process.env.PORT || 8000;
 
 connectDb().then(() => {
   app.listen(port, () => {
-    console.log("connceted to DB");
-    console.log("Server is running");
+    console.log("Connected to DB");
+    console.log("Server is running on port", port);
   });
 });
