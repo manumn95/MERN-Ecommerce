@@ -67,5 +67,8 @@ const summaryApi = {
   getOrder: {
     url: `${backendDomain}/api/orderDetails`,
   },
+  allOrders:{
+    url:`${backendDomain}/api/all-order`
+  }
 };
 export default summaryApi;
