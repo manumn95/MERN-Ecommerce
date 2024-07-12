@@ -24,7 +24,7 @@ const filterProductController = require("../controllers/product/filterProduct");
 const paymentController = require("../controllers/order/paymentController");
 const webhooks = require("../controllers/order/webHook");
 const orderController = require("../controllers/order/order.controller");
-const getCategoryWiseProducts = require("../controllers/product/getCategorywiseProduct");
+const getCategoryWiseProducts = require("../controllers/product/getCategoryWiseProduct");
 
 router.post("/signUp", userSignUpController);
 router.post("/signIn", userSignIn);
