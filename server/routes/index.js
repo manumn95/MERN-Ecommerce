@@ -12,7 +12,7 @@ const updateProductController = require("../controllers/product/updateProduct");
 const userSignUpController = require("../controllers/user/userSignUp");
 const userSignIn = require("../controllers/user/userSignin");
 const getCategoryProduct = require("../controllers/product/getCatergoryProductOne");
-const getCategoryWiseProduct = require("../controllers/product/getCategorywiseProduct");
+
 const getProductDetail = require("../controllers/product/getProductDetails");
 const addTocartController = require("../controllers/user/addToCart");
 const countAddToCartProduct = require("../controllers/user/countAddToCart");
@@ -24,6 +24,7 @@ const filterProductController = require("../controllers/product/filterProduct");
 const paymentController = require("../controllers/order/paymentController");
 const webhooks = require("../controllers/order/webHook");
 const orderController = require("../controllers/order/order.controller");
+const getCategoryWiseProduct = require("../controllers/product/getCategorywiseProduct");
 
 
 
