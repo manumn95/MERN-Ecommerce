@@ -30,6 +30,7 @@ const Header = () => {
     if (dataResponse.data.success) {
       toast.success(dataResponse.data.message);
       dispatch(setUserDetails(null));
+      navigate('/');
     }
     if (dataResponse.data.error) {
       toast.error(dataResponse.data.message);
