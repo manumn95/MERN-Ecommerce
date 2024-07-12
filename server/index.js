@@ -12,7 +12,7 @@ const allowedOrigin = 'https://mern-ecommerce-frontend-amber.vercel.app';
 app.use(
   cors({
     origin: (origin, callback) => {
-      console.log(`Received origin: ${origin}`);  // Logging the received origin
+      console.log(`Received origin: ${origin}`);  
       if (!origin || origin === allowedOrigin) {
         callback(null, true);
       } else {
