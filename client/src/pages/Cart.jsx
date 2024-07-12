@@ -103,7 +103,6 @@ const Cart = () => {
         stripePromise.redirectToCheckout({ sessionId : responseData.id})
     }
 
-    console.log("payment response",responseData)
 }
 
 
