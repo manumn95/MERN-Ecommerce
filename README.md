@@ -2,6 +2,9 @@
 
 An eCommerce application built using the MERN (MongoDB, Express, React, Node.js, Tailwind) stack.
 
+## Live:
+"https://mern-ecommerce-frontend-amber.vercel.app/"
+
 ## Screenshots
 
 ### Homepage
