@@ -1,14 +1,14 @@
 import  { useEffect, useState } from 'react'
-import SummaryApi from '../common'
 import moment from 'moment'
 import displayINRCurrency from '../helpers/displayCurrency'
+import summaryApi from '../common'
 
 const AllOrder = () => {
     const [data,setData] = useState([])
 
     const fetchOrderDetails = async()=>{
-      const response = await fetch(SummaryApi.allOrder.url,{
-        method : SummaryApi.allOrder.method,
+      const response = await fetch(summaryApi.allOrders.url,{
+        method :"GET",
         credentials : 'include'
       })
   
