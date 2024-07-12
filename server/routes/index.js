@@ -24,9 +24,11 @@ const filterProductController = require("../controllers/product/filterProduct");
 const paymentController = require("../controllers/order/paymentController");
 const webhooks = require("../controllers/order/webHook");
 const orderController = require("../controllers/order/order.controller");
-const getCategoryWiseProducts = require("../controllers/product/getCategorywiseProduct");
-
-
+const getCategorywiseProductPath = require.resolve(
+  "../controllers/product/getCategorywiseProduct"
+);
+console.log("Resolved path:", getCategorywiseProductPath);
+const getCategorywiseProduct = require(getCategorywiseProductPath);
 
 router.post("/signUp", userSignUpController);
 router.post("/signIn", userSignIn);
@@ -58,7 +60,7 @@ router.delete("/delete-cart-product", authToken, deleteAddToCardProduct);
 
 //payment and order
 router.post("/checkout", authToken, paymentController);
-router.post('/webhook',webhooks);
-router.get('/orderDetails',authToken,orderController)
+router.post("/webhook", webhooks);
+router.get("/orderDetails", authToken, orderController);
 
 module.exports = router;
