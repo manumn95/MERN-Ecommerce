@@ -1,4 +1,5 @@
-const backendDomain = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+const backendDomain =import.meta.env.VITE_REACT_APP_BACKEND_URL ;
+
 const summaryApi = {
   signUp: {
     url: `${backendDomain}/api/signUp`,
