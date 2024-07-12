@@ -15,6 +15,8 @@ import Success from "../pages/Success";
 import Cancel from "../pages/Cancel";
 import OrderPage from "../pages/OrderPage";
 import AllOrder from "../pages/AllOrder";
+import Error from "../pages/Error";
+
 
 const router = createBrowserRouter([
   {
@@ -81,8 +83,12 @@ const router = createBrowserRouter([
             path:'all-orders',
             element:<AllOrder></AllOrder>
           }
-     
         ]
+      },
+     
+      {
+        path: '*',
+        element: <Error></Error>
       }
     ],
   },
