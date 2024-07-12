@@ -1,33 +1,29 @@
 # eCommerce MERN Application
 
-An eCommerce application built using the MERN (MongoDB, Express, React, Node.js,tailwind) stack.
+An eCommerce application built using the MERN (MongoDB, Express, React, Node.js, Tailwind) stack.
 
-# Screenshots:
+## Screenshots
 
-Homepage
-![alt text](image.png)
+### Homepage
+![Homepage](image.png)
 
-.Filter page
-![alt text](image-1.png)
+### Filter Page
+![Filter Page](image-1.png)
 
-product Detail page
+### Product Detail Page
+![Product Detail Page](image-2.png)
 
-![alt text](image-2.png)
+### Cart Page
+![Cart Page](image-3.png)
 
-Cart Page
+### Payment Page
+![Payment Page](image-4.png)
 
-![alt text](image-3.png)
+### Order Page
+![Order Page](image-5.png)
 
-payment page
-
-![alt text](image-4.png)
-
-order-page
-
-![alt text](image-5.png)
-
-Admin-panel
-![alt text](image-6.png)
+### Admin Panel
+![Admin Panel](image-6.png)
 
 ## Features
 
@@ -44,18 +40,26 @@ Admin-panel
 - MongoDB
 - Stripe account
 
-Technologies Used
+## Technologies Used
 
-    Frontend: React, Redux, Axios, Tailwind
-    Backend: Node.js, Express
-    Database: MongoDB
-    Authentication: JWT
-    Payment Processing: Stripe
+- **Frontend**: React, Redux, Axios, Tailwind
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **Authentication**: JWT
+- **Payment Processing**: Stripe
 
 ## Installation
 
-clone the repository
-npm install
-cd client
+1. **Clone the repository:**
+
+   ```sh
+   git clone https://github.com/manumn95/MERN-Ecommerce.git
+   cd your-repo-name
+
+# Start the client
+cd ../client
+npm start
+
+# Start the server
 cd server
-npm start / npm run dev
+npm start
