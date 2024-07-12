@@ -100,9 +100,15 @@ const Header = () => {
                       Admin Panel
                     </Link>
                   )}
-                  <Link to='/order'className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2 "  onClick={() =>
-                        setMenuDisplay((pre) => setMenuDisplay(!pre))
-                      }></Link>
+                  <Link
+                    to="/order"
+                    className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2 "
+                    onClick={() =>
+                      setMenuDisplay((pre) => setMenuDisplay(!pre))
+                    }
+                  >
+                    Orders
+                  </Link>
                 </nav>
               </div>
             )}

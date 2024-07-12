@@ -1,8 +1,59 @@
-# React + Vite
+# eCommerce MERN Application
+An eCommerce application built using the MERN (MongoDB, Express, React, Node.js,tailwind) stack.
+# Screenshots:
+Homepage
+![alt text](image.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+.Filter page
+![alt text](image-1.png)
 
-Currently, two official plugins are available:
+product Detail page
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![alt text](image-2.png)
+
+Cart Page
+
+![alt text](image-3.png)
+
+payment page
+
+![alt text](image-4.png)
+
+order-page
+
+![alt text](image-5.png)
+
+Admin-panel
+![alt text](image-6.png)
+
+## Features
+
+- User authentication and authorization
+- Product browsing and searching
+- Shopping cart and checkout
+- Order management
+- Payment processing with Stripe
+- Admin dashboard for product and order management
+
+## Prerequisites
+
+- Node.js
+- MongoDB
+- Stripe account
+
+Technologies Used
+
+    Frontend: React, Redux, Axios, Tailwind
+    Backend: Node.js, Express
+    Database: MongoDB
+    Authentication: JWT
+    Payment Processing: Stripe
+
+## Installation
+
+clone the repository
+npm install
+cd client
+cd server
+npm start / npm run dev
+    
