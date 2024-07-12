@@ -24,11 +24,7 @@ const filterProductController = require("../controllers/product/filterProduct");
 const paymentController = require("../controllers/order/paymentController");
 const webhooks = require("../controllers/order/webHook");
 const orderController = require("../controllers/order/order.controller");
-const getCategorywiseProductPath = require.resolve(
-  "../controllers/product/getCategorywiseProduct"
-);
-console.log("Resolved path:", getCategorywiseProductPath);
-const getCategorywiseProduct = require(getCategorywiseProductPath);
+const getCategoryWiseProducts = require("../controllers/product/getCategorywiseProduct");
 
 router.post("/signUp", userSignUpController);
 router.post("/signIn", userSignIn);
