@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'https://mern-ecommerce-frontend-amber.vercel.app/',
+    origin: 'https://mern-ecommerce-frontend-amber.vercel.app',
     credentials: true,
   })
 );
