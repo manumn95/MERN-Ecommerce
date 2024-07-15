@@ -2,7 +2,8 @@ const userModel = require("../../models/userModel");
 const bcrypt = require("bcryptjs");
 const userSignUpController = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, profilePic } = req.body;
+    console.log("hi");
 
     const user = await userModel.findOne({ email });
     if (user) {
