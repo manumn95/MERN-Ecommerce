@@ -42,7 +42,7 @@ const userSignUpController = async (req, res) => {
     });
   } catch (err) {
     res.json({
-      message: err.message || err,
+      message: "image Size is too large" || err,
       error: true,
       success: false,
     });
