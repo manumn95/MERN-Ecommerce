@@ -13,6 +13,7 @@ import ROLE from "../common/role";
 import context from "../context";
 const Header = () => {
   const user = useSelector((state) => state?.user?.user?.data);
+  console.log(user._id)
   const dispatch = useDispatch();
   const [menuDisplay, setMenuDisplay] = useState(false);
   const contexts = useContext(context);

@@ -12,7 +12,6 @@ export const userSlice = createSlice({
 state.user=action.payload
    }
    
-   
   },
 })
 
