@@ -9,19 +9,10 @@ const app = express();
 
 const allowedOrigin = 'https://mern-ecommerce-frontend-amber.vercel.app';
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      console.log(`Received origin: ${origin}`);  
-      if (!origin || origin === allowedOrigin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin : process.env.FRONTEND_URL,
+  credentials : true
+}))
 
 app.use(express.json());
 app.use(cookieParser());
