@@ -1,20 +1,18 @@
 const userLogOut = (req, res) => {
   try {
-
     const tokenOption = {
-      httpOnly : true,
-      secure : true,
-      sameSite : 'None'
-  }
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    };
 
-    res.clearCookie('token',tokenOption);
+    res.clearCookie("token", tokenOption);
     res.json({
-      message:"Logout Successfully",
-      error:false,
-      success:true,
-      data:[]
-    })
-
+      message: "Logout Successfully",
+      error: false,
+      success: true,
+      data: [],
+    });
   } catch (err) {
     res.json({
       message: err.message || err,
@@ -24,4 +22,4 @@ const userLogOut = (req, res) => {
   }
 };
 
-module.exports=userLogOut;
+module.exports = userLogOut;
